@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ScrollPane?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml" fx:controller="Controller.Controller">
+
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="New">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Map" onAction="#showCreate"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" onAction="#deleteMap"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="About">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Information" onAction="#showAbout"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Exit" >
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="exit" onAction="#exit"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <left>
+        <AnchorPane prefHeight="495.0" prefWidth="404.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+            <children>
+
+                <Button layoutX="80.0" layoutY="21.0" mnemonicParsing="false" onAction="#addBuilding" text="Create Building" />
+                <Button layoutX="190.0" layoutY="21.0" mnemonicParsing="false" text="Delete Building" onAction="#deleteBuilding"/>
+
+                <TableView fx:id="customBuildingTable" layoutX="17.0" layoutY="67.0" prefHeight="500.0" prefWidth="370.0">
+                    <columns>
+                        <TableColumn fx:id="nameCol" prefWidth="68.0" text="Name" />
+                        <TableColumn fx:id="lengthCol" prefWidth="68.0" text="Length" />
+                        <TableColumn fx:id="widthCol" prefWidth="67.0" text="Width" />
+                        <TableColumn fx:id="priceCol" prefWidth="67.0" text="Price" />
+                        <TableColumn fx:id="colorCol" prefWidth="97.0" text="Color" />
+                    </columns>
+                </TableView>
+
+                <Label fx:id="max" layoutX="17" layoutY="600" text="Max Value: " />
+                <Label fx:id="showMax" layoutX="125" layoutY="600" text="0"/>
+
+            </children>
+        </AnchorPane>
+    </left>
+
+    <center>
+        <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <content>
+                <AnchorPane fx:id="mapView" minHeight="0.0" minWidth="0.0" prefHeight="492.0" prefWidth="514.0" />
+            </content>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <AnchorPane prefHeight="67.0" prefWidth="600.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+            <children>
+                <Button layoutX="144.0" layoutY="19.0" mnemonicParsing="false" onAction="#chooseRoad" text="Road or Single building" />
+                <Button layoutX="361.0" layoutY="19.0" mnemonicParsing="false" onAction="#chooseDelete" text="Delete" />
+                <Button layoutX="503.0" layoutY="19.0" mnemonicParsing="false" onAction="#chooseProhibit" text="Prohibit" />
+                <Button layoutX="628.0" layoutY="19.0" mnemonicParsing="false" onAction="#chooseCancel" text="Cancel" />
+                <Button layoutX="757.0" layoutY="19.0" mnemonicParsing="false" onAction="#doOpti" text="Optimisation" />
+            </children>
+        </AnchorPane>
+    </bottom>
+
+
+
+</BorderPane>
